@@ -1,0 +1,34 @@
+@import '../../scss/variables.scss';
+
+.explorer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 25px;
+  .header-left {
+    display: flex;
+    align-items: center;
+    .navigation {
+      margin-right: 23px;
+    }
+    img {
+      width: 18px;
+      height: 20px;
+      margin-right: 20px;
+      &.icon.two {
+        margin-right: 0;
+        transform: rotate(180deg);
+      }
+    }
+    .curr-tab-label {
+      margin: 0;
+      font-family: $font-family-regular;
+    }
+  }
+  .header-right {
+    width: 47%;
+    img {
+      width: 100%;
+    }
+  }
+}

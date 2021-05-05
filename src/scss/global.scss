@@ -1,0 +1,23 @@
+@import './variables.scss';
+@import './custom-mixins.scss';
+
+@include font-face(SF-Pro-Display-Medium, "../assets/fonts/SF-Pro-Display-Medium", 400, normal);
+@include font-face(SF-Pro-Display-Semibold, "../assets/fonts/SF-Pro-Display-Semibold", 500, normal);
+@include font-face(SF-Pro-Display-Regular, "../assets/fonts/SF-Pro-Display-Regular", 500, normal);
+
+html,
+body,
+#root,
+.app-container {
+  height: 100%;
+}
+
+.app-container {
+  display: flex;
+  align-items: center;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family;
+}

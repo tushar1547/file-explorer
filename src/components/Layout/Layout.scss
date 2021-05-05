@@ -1,0 +1,15 @@
+@import '../../scss/variables.scss';
+
+.layout-container {
+  background-color: $primary-black;
+  display: flex;
+  overflow-y: scroll;
+  height: 493px;
+  position: relative;
+  .layout {
+    width: 100%;
+    margin: 0 0 0 250px;
+    padding: 20px 27px 0;
+    color: $text-secondary-grey;
+  }
+}

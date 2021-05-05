@@ -1,0 +1,7 @@
+@import './variables.scss';
+
+@mixin desktop-and-large-screen {
+  @media (min-width: $screen-lg-min) {
+    @content;
+  }
+}

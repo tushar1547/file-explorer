@@ -1,0 +1,17 @@
+@import './variables.scss';
+@import './screens-mixins.scss';
+
+.screen-container {
+  max-width: $screen-max-width;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 $mobile-gutter-space;
+  @include desktop-and-large-screen {
+    padding: 0 $desktop-gutter-space;
+  }
+}
+
+.folders-container {
+  display: flex;
+  padding-left: 15px;
+}
