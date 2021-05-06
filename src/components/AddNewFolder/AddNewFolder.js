@@ -7,18 +7,30 @@ class AddNewFolder extends Component {
     name: ''
   }
 
-  handleOnChange = (e) => {
+  handleOnChange = e => {
     this.setState({ name: e.target.value });
   }
 
+  handleKeyDown = e => {
+    if (e.key === 'Enter') {
+      this.props.handleAddFolder(this.state.name);
+    }
+  }
+
   render() {
-    const { handleAddFolder, handleShowModal } = this.props;
+    const { handleAddFolder, handleShowModal, isError } = this.props;
 
     return (
       <div className='add-folder'>
         <div className='add-folder-content'>
           <h3>Add new folder</h3>
-          <input type='text' onChange={(e) => this.handleOnChange(e)} value={this.state.name} />
+          <input
+            type='text'
+            onChange={(e) => this.handleOnChange(e)}
+            value={this.state.name}
+            onKeyDown={this.handleKeyDown}
+          />
+          {isError ? <p className='error-label'>Enter a folder name</p> : null}
           <button onClick={() => handleAddFolder(this.state.name)}>Add</button>
           <button onClick={handleShowModal}>Cancel</button>
         </div>

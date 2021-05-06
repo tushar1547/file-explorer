@@ -12,17 +12,27 @@ import './Layout.scss';
 
 class Layout extends Component {
   state = {
-    showModal: false
+    showModal: false,
+    inputError: false
   }
 
   handleShowModal = () => {
     this.setState({ showModal: !this.state.showModal });
+
+    if (!this.state.showModal) {
+      this.setState({ inputError: false })
+    }
   }
 
   handleAddFolder = name => {
     const { onAddFolder } = this.props;
-    onAddFolder(name);
-    this.setState({ showModal: !this.state.showModal });
+
+    if (name.length) {
+      onAddFolder(name);
+      this.setState({ showModal: !this.state.showModal });
+    } else {
+      this.setState({ inputError: !this.state.inputError });
+    }
   }
 
   handleRemoveFolder = name => {
@@ -31,14 +41,14 @@ class Layout extends Component {
   }
   
   render() {
-    const { showModal } = this.state;
+    const { showModal, inputError } = this.state;
     return (
       <div className='layout-container'>
         <div className='layout'>
           <Header />
           <Routes />
           <FolderMenu handleShowModal={this.handleShowModal} handleRemoveFolder={this.handleRemoveFolder} />
-          {showModal && <AddNewFolder handleAddFolder={this.handleAddFolder} handleShowModal={this.handleShowModal} />}
+          {showModal && <AddNewFolder handleAddFolder={this.handleAddFolder} handleShowModal={this.handleShowModal} isError={inputError} />}
         </div>
       </div>
     );

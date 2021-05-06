@@ -48,7 +48,8 @@ export const sideBarItems = [
         label: 'fav',
         name: 'Music',
         path: '/music',
-        img: 'music.png'
+        img: 'music.png',
+        activeTab: true
       },
       {
         id: 8,

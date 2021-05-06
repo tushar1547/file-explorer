@@ -1,6 +1,9 @@
+@import '../../scss/variables.scss';
+
 .explorer-layout-container {
   .explorer-layout {
-    border: 1px solid black;
+    box-shadow: 0 0px 10px 0px rgba(12, 11, 11, 0.65), 17px 21px 28px 4px rgba(0.86, 0.86, 0.86, 0.55);
+    border: 1px solid $border-grey;
     border-radius: 18px;
     overflow: hidden;
   }

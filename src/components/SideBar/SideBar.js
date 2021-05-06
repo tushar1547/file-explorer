@@ -10,7 +10,7 @@ class SideBar extends Component {
     return (
       <div className='explorer-sidebar'>
         <div className='sidebar'>
-          <div className='window-icons'>
+          <div className='window-icons left__padding'>
             <div className='close' />
             <div className='minimize' />
             <div className='expand' />
@@ -21,10 +21,10 @@ class SideBar extends Component {
                 if (item.fav) {
                   return (
                     <div key={Math.random()} className='domain one'>
-                      <p className='domain-label'>Favourites</p>
+                      <p className='domain-label left__padding'>Favourites</p>
                       {item.fav.map(itemFav => {
                         return (
-                          <div className='sidebar-item' key={itemFav.id}>
+                          <div className={`sidebar-item ${itemFav.activeTab && itemFav.activeTab ? 'active': ''}`} key={itemFav.id}>
                             <div className='sidebar-icons'>
                               <img src={require(`../../assets/images/${itemFav.img}`)} alt={itemFav.name} />
                             </div>
@@ -38,7 +38,7 @@ class SideBar extends Component {
                 if (item.icloud) {
                   return (
                     <div key={Math.random()} className='domain two'>
-                      <p className='domain-label'>iCloud</p>
+                      <p className='domain-label left__padding'>iCloud</p>
                       {item.icloud.map(itemCloud => {
                         return (
                           <div className='sidebar-item' key={itemCloud.id}>

@@ -10,7 +10,7 @@
   top: 0;
   overflow-x: hidden;
   .sidebar {
-    padding: 20px;
+    padding: 20px 12px;
     a {
       color: $text-secondary-grey;
       text-decoration: none;
@@ -56,11 +56,22 @@
       line-height: 18px;
       letter-spacing: 0.2px;
       display: flex;
+      &:not(.active) {
+        padding-left: 7px;
+      }
+    }
+    .sidebar-item.active {
+      background-color: $color-tab-grey;
+      padding: 7px;
+      border-radius: 6px;
     }
   }
   .domain {
     &.one {
       margin-bottom: 24px;
+    }
+    &.two:last-child {
+      margin-bottom: 0;
     }
   }
   .sidebar-icons {
