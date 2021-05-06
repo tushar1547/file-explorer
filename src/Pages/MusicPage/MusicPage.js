@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Folder from '../../components/Folder/Folder';
 
 class MusicPage extends Component {
   render () {
+    const { foldersData } = this.props;
+
     return (
       <div className='folders-container'>
-        <Folder />
+        {foldersData.folders.map(folder => <Folder folder={folder} /> )}
       </div>
     );
   }
 }
 
-export default MusicPage;
+const mapStateToProps = state => {
+  return {
+    foldersData: state.foldersData
+  }
+}
+
+export default connect(mapStateToProps)(MusicPage);

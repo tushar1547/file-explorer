@@ -4,12 +4,14 @@ import './Folder.scss';
 
 class Folder extends Component {
   render() {
+    const { folder } = this.props;
+
     return (
       <div className='folder'>
         <div className='folder-icon'>
-          <img src={require('../../assets/images/folder.png')} />
+          <img className='folder-img' src={require('../../assets/images/folder.png')} />
         </div>
-        <p className='folder-label'>Music</p>
+        <p className='folder-label'>{folder}</p>
       </div>
     )
   }
