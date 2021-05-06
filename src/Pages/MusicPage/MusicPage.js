@@ -9,7 +9,7 @@ class MusicPage extends Component {
 
     return (
       <div className='folders-container'>
-        {foldersData.folders.map(folder => <Folder folder={folder} /> )}
+        {foldersData.folders.map(folder => <Folder key={folder} folder={folder} /> )}
       </div>
     );
   }
