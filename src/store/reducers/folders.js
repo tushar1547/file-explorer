@@ -5,13 +5,18 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-  console.log('action', action);
   switch (action.type) {
     case actionTypes.ADD_FOLDER:
       return {
         ...state,
         folders: state.folders.concat(action.folderName),
       };
+
+    case actionTypes.REMOVE_FOLDER:
+      return {
+        ...state,
+        folders: state.folders.filter(folder => action.folderName !== folder)
+      }
 
     default:
       return state;

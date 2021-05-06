@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 import FolderMenu from '../FolderMenu/FolderMenu';
 import AddNewFolder from '../AddNewFolder/AddNewFolder';
 
-import * as folderActions from '../../store/actions/addFolder';
+import * as folderActions from '../../store/actions/folderActions';
 
 import './Layout.scss';
 
@@ -19,10 +19,15 @@ class Layout extends Component {
     this.setState({ showModal: !this.state.showModal });
   }
 
-  handleAddFolder = (name) => {
+  handleAddFolder = name => {
     const { onAddFolder } = this.props;
     onAddFolder(name);
     this.setState({ showModal: !this.state.showModal });
+  }
+
+  handleRemoveFolder = name => {
+    const { onRemoveFolder } = this.props;
+    onRemoveFolder(name);
   }
   
   render() {
@@ -32,7 +37,7 @@ class Layout extends Component {
         <div className='layout'>
           <Header />
           <Routes />
-          <FolderMenu handleShowModal={this.handleShowModal} />
+          <FolderMenu handleShowModal={this.handleShowModal} handleRemoveFolder={this.handleRemoveFolder} />
           {showModal && <AddNewFolder handleAddFolder={this.handleAddFolder} handleShowModal={this.handleShowModal} />}
         </div>
       </div>
@@ -42,7 +47,8 @@ class Layout extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAddFolder: folderName => dispatch(folderActions.addFolder(folderName))
+    onAddFolder: folderName => dispatch(folderActions.addFolder(folderName)),
+    onRemoveFolder: folderName => dispatch(folderActions.removeFolder(folderName))
   }
 }
 

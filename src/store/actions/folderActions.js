@@ -6,3 +6,10 @@ export const addFolder = name => {
     folderName: name
   }
 }
+
+export const removeFolder = name => {
+  return {
+    type: actionTypes.REMOVE_FOLDER,
+    folderName: name
+  }
+}

@@ -9,7 +9,7 @@ class Folder extends Component {
     return (
       <div className='folder'>
         <div className='folder-icon'>
-          <img className='folder-img' src={require('../../assets/images/folder.png')} />
+          <img className='folder-img' src={require('../../assets/images/folder.png')} alt={folder} />
         </div>
         <p className='folder-label'>{folder}</p>
       </div>
