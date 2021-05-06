@@ -7,7 +7,7 @@ class FolderMenu extends Component {
     xPos: '',
     yPos: '',
     show: false,
-    showDelete: false,
+    showFolderOptions: false,
     folderName: ''
   }
 
@@ -25,7 +25,7 @@ class FolderMenu extends Component {
     if (this.state.show) this.setState({ show: false });
   };
 
-  handleContextMenu = (e) => {
+  handleContextMenu = e => {
     e.preventDefault();
     const targetEleClass = e.target.className;
     const folderName = e.target.alt;
@@ -37,14 +37,14 @@ class FolderMenu extends Component {
     });
 
     if (targetEleClass === 'folder-img' || targetEleClass === 'folder' || targetEleClass === 'folder-label') {
-      this.setState({ showDelete: true, folderName: folderName });
+      this.setState({ showFolderOptions: true, folderName: folderName });
     } else {
-      this.setState({ showDelete: false });
+      this.setState({ showFolderOptions: false });
     }
   };
 
   render() {
-    const { show, xPos, yPos, showDelete, folderName } = this.state;
+    const { show, xPos, yPos, showFolderOptions, folderName } = this.state;
     const { handleShowModal, handleRemoveFolder } = this.props;
 
     if (show) {
@@ -56,8 +56,15 @@ class FolderMenu extends Component {
             left: xPos,
           }}
         >
-          <li onClick={handleShowModal}>New folder</li>
-          {showDelete ? <li onClick={() => handleRemoveFolder(folderName)}>Delete</li> : null}
+          <li onClick={() => handleShowModal('new')}>New folder</li>
+          {
+            showFolderOptions ?
+            <>
+              <li onClick={() => handleRemoveFolder(folderName)}>Delete</li>
+              <li onClick={() => handleShowModal('rename', folderName)}>Rename</li>
+            </>
+            : null
+          }
         </ul>
       );
     } else return null;

@@ -17,6 +17,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         folders: state.folders.filter(folder => action.folderName !== folder)
       }
+    
+    case actionTypes.RENAME_FOLDER:
+      return {
+        ...state,
+        folders: state.folders.map((folder, idx) => (idx === action.renameData.oldNameIndex) ? action.renameData.newName : folder)
+      }
 
     default:
       return state;

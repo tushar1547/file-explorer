@@ -70,7 +70,7 @@
     &.one {
       margin-bottom: 24px;
     }
-    &.two:last-child {
+    &.two .sidebar-item:last-child {
       margin-bottom: 0;
     }
   }

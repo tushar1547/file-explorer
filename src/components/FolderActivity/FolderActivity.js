@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import './AddNewFolder.scss';
+import './FolderActivity.scss';
 
-class AddNewFolder extends Component {
+class FolderActivity extends Component {
   state = {
     name: ''
   }
@@ -18,20 +18,20 @@ class AddNewFolder extends Component {
   }
 
   render() {
-    const { handleAddFolder, handleShowModal, isError } = this.props;
+    const { handleProvision, handleShowModal, inputErrorMsg, title, actionText } = this.props;
 
     return (
       <div className='add-folder'>
         <div className='add-folder-content'>
-          <h3>Add new folder</h3>
+          <h3>{title}</h3>
           <input
             type='text'
             onChange={(e) => this.handleOnChange(e)}
             value={this.state.name}
             onKeyDown={this.handleKeyDown}
           />
-          {isError ? <p className='error-label'>Enter a folder name</p> : null}
-          <button onClick={() => handleAddFolder(this.state.name)}>Add</button>
+          {inputErrorMsg.length ? <p className='error-label'>{inputErrorMsg}</p> : null}
+          <button onClick={() => handleProvision(this.state.name)}>{actionText}</button>
           <button onClick={handleShowModal}>Cancel</button>
         </div>
       </div>
@@ -39,4 +39,4 @@ class AddNewFolder extends Component {
   }
 }
 
-export default AddNewFolder;
+export default FolderActivity;

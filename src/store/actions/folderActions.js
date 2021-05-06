@@ -13,3 +13,15 @@ export const removeFolder = name => {
     folderName: name
   }
 }
+
+export const renameFolder = (name, data, folderName) => {
+  const idx = data.indexOf(folderName);
+
+  return {
+    type: actionTypes.RENAME_FOLDER,
+    renameData: {
+      oldNameIndex: idx,
+      newName: name
+    }
+  }
+}
