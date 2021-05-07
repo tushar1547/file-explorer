@@ -5,7 +5,6 @@ import { sideBarItems } from './SideBarItems';
 import './SideBar.scss';
 
 const SideBar = () => {
-  let markup = null;
   return (
     <div className='explorer-sidebar'>
       <div className='sidebar'>
@@ -16,43 +15,23 @@ const SideBar = () => {
         </div>
         <div className='domains-wrapper'>
           {
-            markup = sideBarItems.map(item => {
-              if (item.fav) {
-                return (
-                  <div key={Math.random()} className='domain one'>
-                    <p className='domain-label left__padding'>Favourites</p>
-                    {item.fav.map(itemFav => {
-                      return (
-                        <div className={`sidebar-item ${itemFav.activeTab && itemFav.activeTab ? 'active': ''}`} key={itemFav.id}>
-                          <div className='sidebar-icons'>
-                            <img src={require(`../../assets/images/${itemFav.img}`)} alt={itemFav.name} />
-                          </div>
-                          <p className='sidebar-item-label'>{itemFav.name}</p>
+            sideBarItems.map(item => 
+              (
+                <div key={Math.random()} className='domain one'>
+                  <p className='domain-label left__padding'>{item.label}</p>
+                  {item.items.map(sideBarItem => {
+                    return (
+                      <div className={`sidebar-item ${sideBarItem.activeTab && sideBarItem.activeTab ? 'active': ''}`} key={sideBarItem.id}>
+                        <div className='sidebar-icons'>
+                          <img src={require(`../../assets/images/${sideBarItem.img}`)} alt={sideBarItem.name} />
                         </div>
-                      )
-                    })}
-                  </div>
-                )
-              }
-              if (item.icloud) {
-                return (
-                  <div key={Math.random()} className='domain two'>
-                    <p className='domain-label left__padding'>iCloud</p>
-                    {item.icloud.map(itemCloud => {
-                      return (
-                        <div className='sidebar-item' key={itemCloud.id}>
-                          <div className='sidebar-icons'>
-                            <img src={require(`../../assets/images/${itemCloud.img}`)} alt={itemCloud.name} />
-                          </div>
-                          <p className='sidebar-item-label'>{itemCloud.name}</p>
-                        </div>
-                      )
-                    })}
-                  </div>
-                )
-              }
-              return markup;
-            })
+                        <p className='sidebar-item-label'>{sideBarItem.name}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              )
+            )
           }
         </div>
       </div>
