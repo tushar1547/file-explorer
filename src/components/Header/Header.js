@@ -15,7 +15,7 @@ const Header = () => {
         </div>
       </div>
       <div className='header-right'>
-        <img src={require('../../assets/images/header-options.png')} />
+        <img src={require('../../assets/images/header-options.png')} alt='right nav' />
       </div>
     </div>
   );

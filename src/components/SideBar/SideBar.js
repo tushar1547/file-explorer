@@ -6,6 +6,7 @@ import { sideBarItems } from './SideBarItems';
 import './SideBar.scss';
 
 const SideBar = () => {
+  let markup = null;
   return (
     <div className='explorer-sidebar'>
       <div className='sidebar'>
@@ -16,7 +17,7 @@ const SideBar = () => {
         </div>
         <div className='domains-wrapper'>
           {
-            sideBarItems.map(item => {
+            markup = sideBarItems.map(item => {
               if (item.fav) {
                 return (
                   <div key={Math.random()} className='domain one'>
@@ -51,6 +52,7 @@ const SideBar = () => {
                   </div>
                 )
               }
+              return markup;
             })
           }
         </div>
