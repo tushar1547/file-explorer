@@ -9,8 +9,7 @@ const Routes = () => {
     <BrowserRouter>
       <SideBar />
       <Switch>
-          <Route path="/music" exact component={MusicPage}/>
-          <Route path="/page2" component={() => <h2>Page 2</h2>}/>
+          <Route path="/" exact component={MusicPage}/>
       </Switch>
     </BrowserRouter>
   );

@@ -28,7 +28,7 @@ const SideBar = () => {
                           <div className='sidebar-icons'>
                             <img src={require(`../../assets/images/${itemFav.img}`)} alt={itemFav.name} />
                           </div>
-                          <Link to={itemFav.path}>{itemFav.name}</Link>
+                          <p className='sidebar-item-label'>{itemFav.name}</p>
                         </div>
                       )
                     })}
@@ -45,7 +45,7 @@ const SideBar = () => {
                           <div className='sidebar-icons'>
                             <img src={require(`../../assets/images/${itemCloud.img}`)} alt={itemCloud.name} />
                           </div>
-                          <Link to={itemCloud.path}>{itemCloud.name}</Link>
+                          <p className='sidebar-item-label'>{itemCloud.name}</p>
                         </div>
                       )
                     })}
