@@ -45,7 +45,7 @@ class FolderMenu extends Component {
 
   render() {
     const { show, xPos, yPos, showFolderOptions, folderName } = this.state;
-    const { handleShowModal, handleRemoveFolder } = this.props;
+    const { handleShowModal, handleRemoveFolder, handleFolderDuplicate } = this.props;
 
     if (show) {
       return (
@@ -62,6 +62,7 @@ class FolderMenu extends Component {
             <>
               <li onClick={() => handleRemoveFolder(folderName)}>Delete</li>
               <li onClick={() => handleShowModal('rename', folderName)}>Rename</li>
+              <li onClick={() => handleFolderDuplicate(folderName)}>Duplicate</li>
             </>
             : null
           }

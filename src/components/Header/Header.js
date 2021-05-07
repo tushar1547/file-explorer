@@ -8,7 +8,7 @@ const Header = () => {
       <div className='header-left'>
         <div className='navigation'>
           <img className='icon one' src={require('../../assets/images/left-arrow.png')} alt='Nav back' />
-          <img className='icon two' src={require('../../assets/images/left-arrow.png')}  alt='Nav forward' />
+          <img className='icon two' src={require('../../assets/images/right-arrow.png')}  alt='Nav forward' />
         </div>
         <div className='curr-tab'>
           <p className='curr-tab-label'>Music</p>

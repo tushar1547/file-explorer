@@ -14,14 +14,21 @@ export const removeFolder = name => {
   }
 }
 
-export const renameFolder = (name, data, folderName) => {
-  const idx = data.indexOf(folderName);
+export const renameFolder = (newFolderName, data, oldFolderName) => {
+  const idx = data.indexOf(oldFolderName);
 
   return {
     type: actionTypes.RENAME_FOLDER,
     renameData: {
       oldNameIndex: idx,
-      newName: name
+      newName: newFolderName
     }
+  }
+}
+
+export const duplicateFolder = duplicatesData => {
+  return {
+    type: actionTypes.DUPLICATE_FOLDER,
+    folderData: duplicatesData
   }
 }

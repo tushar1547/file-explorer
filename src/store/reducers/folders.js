@@ -24,6 +24,12 @@ const reducer = (state = initialState, action) => {
         folders: state.folders.map((folder, idx) => (idx === action.renameData.oldNameIndex) ? action.renameData.newName : folder)
       }
 
+    case actionTypes.DUPLICATE_FOLDER:
+      return {
+        ...state,
+        folders: action.folderData
+      }
+
     default:
       return state;
   }

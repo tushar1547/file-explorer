@@ -70,6 +70,13 @@ class Layout extends Component {
       this.setState({ inputErrorMsg: 'Enter new file name' });
     }
   }
+
+  handleFolderDuplicate = name => {
+    const { foldersData, onDuplicateFolder } = this.props;
+    const foldersWithDuplicate = [...foldersData.folders];
+    foldersWithDuplicate.splice(foldersWithDuplicate.indexOf(name) + 1, 0, `${name} copy`);
+    onDuplicateFolder(foldersWithDuplicate);
+  }
   
   render() {
     const { showModal, inputErrorMsg, folderActivityTitle, folderPrimaryActionText, provisionMethod } = this.state;
@@ -82,6 +89,7 @@ class Layout extends Component {
           <FolderMenu
             handleShowModal={this.handleShowModal}
             handleRemoveFolder={this.handleRemoveFolder}
+            handleFolderDuplicate={this.handleFolderDuplicate}
           />
           {
             showModal &&
@@ -109,7 +117,8 @@ const mapDispatchToProps = dispatch => {
   return {
     onAddFolder: folderName => dispatch(folderActions.addFolder(folderName)),
     onRemoveFolder: folderName => dispatch(folderActions.removeFolder(folderName)),
-    onRenameFolder: (folderName, data, name) => dispatch(folderActions.renameFolder(folderName, data, name))
+    onRenameFolder: (newFolderName, data, oldFolderName) => dispatch(folderActions.renameFolder(newFolderName, data, oldFolderName)),
+    onDuplicateFolder: duplicateData => dispatch(folderActions.duplicateFolder(duplicateData))
   }
 }
 
